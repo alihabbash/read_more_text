@@ -1,7 +1,7 @@
 name: read_more_text
 description: A simple package to implement easy to use read more text feature in your app.
 version: 0.0.1
-homepage:
+homepage: https://github.com/alihabbash/read_more_text.git
 
 environment:
   sdk: ">=2.16.2 <3.0.0"

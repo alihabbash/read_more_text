@@ -1,7 +1,5 @@
 library read_more_text;
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class ReadMoreText extends StatefulWidget {

@@ -27,11 +27,6 @@ and high customizable widget that brings the read more functionality to your app
 * You can use custom icons for read more and read less, or hide the icon entirely if you 
 don't need it.
 
-<!-- ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package. -->
-
 ## Usage
 
 add to your pubspec.yaml:
@@ -63,10 +58,3 @@ ReadMoreText(
 The result will be:
 
 ![Demo of read_more_text](screenshots/1.gif)
-
-
-<!-- ## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more. -->

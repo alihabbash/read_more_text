@@ -11,29 +11,62 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A super fast lightweight easy to use package to implement read more functionality in your app.
+It's responsive to different screen sizes, and supports all platforms.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+The [Read more text](https://pub.dev/packages/read_more_text) is an easy to use yet powerful, 
+and high customizable widget that brings the read more functionality to your app:
 
-## Getting started
+* Lightweight and super easy to use.
+* Works with all locales.
+* Allow customize the main text, text read more/less `TextStyle`.
+* Customizable alignment of the read more/less widget.
+* Handler that is called whenever read more/less is clicked.
+* You can use custom icons for read more and read less, or hide the icon entirely if you 
+don't need it.
+
+<!-- ## Getting started
 
 TODO: List prerequisites and provide or point to information on how to
-start using the package.
+start using the package. -->
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+add to your pubspec.yaml:
 
 ```dart
-const like = 'sample';
+read_more_text: ^0.0.1
 ```
 
-## Additional information
+then import it to your file:
+
+```dart
+import 'package:read_more_text/read_more_text.dart';
+```
+
+then use it:
+
+```dart
+ReadMoreText(
+    'This is a very long text to demo the usages of this package\n'
+    'This is a very long text to demo the usages of this package\n'
+    'This is a very long text to demo the usages of this package\n'
+    'This is a very long text to demo the usages of this package',
+    numLines: 2,
+    readMoreText: 'Read more',
+    readLessText: 'Read less',
+)
+```
+
+The result will be:
+
+![Demo of read_more_text](screenshots/1.gif)
+
+
+<!-- ## Additional information
 
 TODO: Tell users more about the package: where to find more information, how to 
 contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+from the package authors, and more. -->

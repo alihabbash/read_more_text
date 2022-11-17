@@ -26,6 +26,8 @@ and high customizable widget that brings the read more functionality to your app
 * Handler that is called whenever read more/less is clicked.
 * You can use custom icons for read more and read less, or hide the icon entirely if you 
 don't need it.
+* **[New]:** You can now use the named constructor `ReadMoreText.selectable` selectable to 
+instruct the package to use `SelectableText` widget instead of `Text` widget with all the customization like `cursorColor`, `cursorWidth`, and `cursorHeight`, etc...
 
 ## Usage
 

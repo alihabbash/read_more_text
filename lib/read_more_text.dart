@@ -22,6 +22,41 @@ class ReadMoreText extends StatefulWidget {
               readMoreIcon == null && readLessIcon == null,
           'You need to specify both read more and read less icons ',
         ),
+        cursorHeight = null,
+        _isSelectable = false,
+        showCursor = null,
+        cursorWidth = null,
+        cursorColor = null,
+        cursorRadius = null,
+        toolbarOptions = null,
+        super(key: key);
+
+  /// Show a read more text widget with the use of [SelectableText] instead
+  /// of normal [Text] widget.
+  ///
+  /// You can customize the look and feel of the [SelectableText] like cursor
+  /// width, cursor height, cursor color, etc...
+  const ReadMoreText.selectable(
+    this.text, {
+    Key? key,
+    required this.numLines,
+    required this.readMoreText,
+    required this.readLessText,
+    this.readMoreAlign = AlignmentDirectional.bottomEnd,
+    this.readMoreIcon,
+    this.readLessIcon,
+    this.readMoreTextStyle,
+    this.readMoreIconColor = Colors.blue,
+    this.style,
+    this.locale,
+    this.onReadMoreClicked,
+    this.cursorColor,
+    this.cursorRadius,
+    this.cursorWidth,
+    this.showCursor,
+    this.toolbarOptions,
+    this.cursorHeight,
+  })  : _isSelectable = true,
         super(key: key);
 
   /// The main text that needs to be shown.
@@ -71,6 +106,20 @@ class ReadMoreText extends StatefulWidget {
   /// e.g: The app locale is `en` but you pass a german text.
   final Locale? locale;
 
+  /// Whether to show the cursor or not.
+  final bool? showCursor;
+  /// The cursor width if the cursor is shown.
+  final double? cursorWidth;
+  /// The cursor height if the cursor is shown.
+  final double? cursorHeight;
+  /// The cursor color if the cursor is shown.
+  final Color? cursorColor;
+  /// The cursor radius if the cursor is shown.
+  final Radius? cursorRadius;
+  /// The toolbar options of the selection area.
+  final ToolbarOptions? toolbarOptions;
+  final bool _isSelectable;
+
   @override
   State<ReadMoreText> createState() => _ReadMoreTextState();
 }
@@ -98,11 +147,24 @@ class _ReadMoreTextState extends State<ReadMoreText> {
           tp.layout(maxWidth: constraints.maxWidth);
           return Column(
             children: [
-              Text(
-                widget.text,
-                maxLines: _isTextExpanded ? null : widget.numLines,
-                style: widget.style,
-              ),
+              widget._isSelectable
+                  ? SelectableText(
+                      widget.text,
+                      maxLines: _isTextExpanded ? null : widget.numLines,
+                      style: widget.style,
+                      cursorColor: widget.cursorColor,
+                      cursorWidth: widget.cursorWidth ?? 2,
+                      cursorHeight: widget.cursorHeight,
+                      cursorRadius: widget.cursorRadius,
+                      showCursor: widget.showCursor ?? false,
+                      toolbarOptions: widget.toolbarOptions,
+                      scrollPhysics: const NeverScrollableScrollPhysics(),
+                    )
+                  : Text(
+                      widget.text,
+                      maxLines: _isTextExpanded ? null : widget.numLines,
+                      style: widget.style,
+                    ),
               if (tp.didExceedMaxLines) const SizedBox(height: 8),
               if (tp.didExceedMaxLines)
                 Padding(

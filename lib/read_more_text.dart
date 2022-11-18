@@ -3,7 +3,8 @@ library read_more_text;
 import 'package:flutter/material.dart';
 
 class ReadMoreText extends StatefulWidget {
-  const ReadMoreText(this.text, {
+  const ReadMoreText(
+    this.text, {
     required this.numLines,
     required this.readMoreText,
     required this.readLessText,
@@ -16,12 +17,11 @@ class ReadMoreText extends StatefulWidget {
     this.locale,
     this.onReadMoreClicked,
     Key? key,
-  })
-      : assert(
-  (readMoreIcon != null && readLessIcon != null) ||
-      readMoreIcon == null && readLessIcon == null,
-  'You need to specify both read more and read less icons ',
-  ),
+  })  : assert(
+          (readMoreIcon != null && readLessIcon != null) ||
+              readMoreIcon == null && readLessIcon == null,
+          'You need to specify both read more and read less icons ',
+        ),
         cursorHeight = null,
         _isSelectable = false,
         showCursor = null,
@@ -36,7 +36,8 @@ class ReadMoreText extends StatefulWidget {
   ///
   /// You can customize the look and feel of the [SelectableText] like cursor
   /// width, cursor height, cursor color, etc...
-  const ReadMoreText.selectable(this.text, {
+  const ReadMoreText.selectable(
+    this.text, {
     Key? key,
     required this.numLines,
     required this.readMoreText,
@@ -55,8 +56,7 @@ class ReadMoreText extends StatefulWidget {
     this.showCursor,
     this.toolbarOptions,
     this.cursorHeight,
-  })
-      : _isSelectable = true,
+  })  : _isSelectable = true,
         super(key: key);
 
   /// The main text that needs to be shown.
@@ -139,8 +139,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
   var _isTextExpanded = false;
 
   @override
-  Widget build(BuildContext context) =>
-      LayoutBuilder(
+  Widget build(BuildContext context) => LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           final locale = widget.locale ?? Localizations.maybeLocaleOf(context);
           final span = TextSpan(text: widget.text);
@@ -155,22 +154,22 @@ class _ReadMoreTextState extends State<ReadMoreText> {
             children: [
               widget._isSelectable
                   ? SelectableText(
-                widget.text,
-                maxLines: _isTextExpanded ? null : widget.numLines,
-                style: widget.style,
-                cursorColor: widget.cursorColor,
-                cursorWidth: widget.cursorWidth ?? 2,
-                cursorHeight: widget.cursorHeight,
-                cursorRadius: widget.cursorRadius,
-                showCursor: widget.showCursor ?? false,
-                toolbarOptions: widget.toolbarOptions,
-                scrollPhysics: const NeverScrollableScrollPhysics(),
-              )
+                      widget.text,
+                      maxLines: _isTextExpanded ? null : widget.numLines,
+                      style: widget.style,
+                      cursorColor: widget.cursorColor,
+                      cursorWidth: widget.cursorWidth ?? 2,
+                      cursorHeight: widget.cursorHeight,
+                      cursorRadius: widget.cursorRadius,
+                      showCursor: widget.showCursor ?? false,
+                      toolbarOptions: widget.toolbarOptions,
+                      scrollPhysics: const NeverScrollableScrollPhysics(),
+                    )
                   : Text(
-                widget.text,
-                maxLines: _isTextExpanded ? null : widget.numLines,
-                style: widget.style,
-              ),
+                      widget.text,
+                      maxLines: _isTextExpanded ? null : widget.numLines,
+                      style: widget.style,
+                    ),
               if (tp.didExceedMaxLines) const SizedBox(height: 8),
               if (tp.didExceedMaxLines)
                 Padding(

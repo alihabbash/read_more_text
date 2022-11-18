@@ -76,10 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
               onReadMoreClicked: _onReadMoreClicked,
               // Specify the read more/less text style.
               readMoreTextStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.blue
-              ),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.blue),
               // The read more icon color
               // It has no effect if you specify a custom icon.
               readMoreIconColor: Colors.black,
@@ -106,9 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ReadMoreText.selectable(
                 // This is the main or contents text you needs to specify.
                 'This is a very long text to demo the usages of this package\n'
-                    'This is a very long text to demo the usages of this package\n'
-                    'This is a very long text to demo the usages of this package\n'
-                    'This is a very long text to demo the usages of this package',
+                'This is a very long text to demo the usages of this package\n'
+                'This is a very long text to demo the usages of this package\n'
+                'This is a very long text to demo the usages of this package',
                 // This is the number of lines before start trimming the
                 // content text
                 numLines: 2,
@@ -144,8 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 readMoreTextStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
-                    color: Colors.blue
-                ),
+                    color: Colors.blue),
                 // The read more icon color
                 // It has no effect if you specify a custom icon.
                 readMoreIconColor: Colors.black,
@@ -185,6 +183,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _onReadMoreClicked() {
-  }
+  void _onReadMoreClicked() {}
 }

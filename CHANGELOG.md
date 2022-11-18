@@ -6,4 +6,5 @@
 * Added `selectable` named constructor to instruct the package to use `SelectableText` instead of `Text` widget.
 
 ## 0.0.3
+## 0.0.4
 * Quality fixes.

@@ -34,7 +34,7 @@ instruct the package to use `SelectableText` widget instead of `Text` widget wit
 add to your pubspec.yaml:
 
 ```dart
-read_more_text: ^0.0.4
+read_more_text: ^0.0.5
 ```
 
 then import it to your file:

@@ -16,6 +16,8 @@ class ReadMoreText extends StatefulWidget {
     this.style,
     this.locale,
     this.onReadMoreClicked,
+    this.readMoreKey,
+    this.textKey,
     Key? key,
   })  : assert(
           (readMoreIcon != null && readLessIcon != null) ||
@@ -43,6 +45,8 @@ class ReadMoreText extends StatefulWidget {
     required this.readMoreText,
     required this.readLessText,
     this.readMoreAlign = AlignmentDirectional.bottomEnd,
+    this.readMoreKey,
+    this.textKey,
     this.readMoreIcon,
     this.readLessIcon,
     this.readMoreTextStyle,
@@ -125,6 +129,12 @@ class ReadMoreText extends StatefulWidget {
   final ToolbarOptions? toolbarOptions;
   final bool _isSelectable;
 
+  /// The key for the content text.
+  final Key? textKey;
+
+  /// The key for read more button.
+  final Key? readMoreKey;
+
   @override
   State<ReadMoreText> createState() => _ReadMoreTextState();
 }
@@ -155,6 +165,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
               widget._isSelectable
                   ? SelectableText(
                       widget.text,
+                      key: widget.textKey,
                       maxLines: _isTextExpanded ? null : widget.numLines,
                       style: widget.style,
                       cursorColor: widget.cursorColor,
@@ -167,6 +178,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
                     )
                   : Text(
                       widget.text,
+                      key: widget.textKey,
                       maxLines: _isTextExpanded ? null : widget.numLines,
                       style: widget.style,
                     ),
@@ -175,6 +187,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
                 Padding(
                   padding: const EdgeInsetsDirectional.only(end: 8),
                   child: GestureDetector(
+                    key: widget.readMoreKey,
                     onTap: _onReadMoreClicked,
                     child: Align(
                       alignment: widget.readMoreAlign,
